@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+        .active{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+        <!-- <div id="app">
+                <input type="text" ref="input1"/>
+                <button @click="add">添加</button>
+            </div>
+            复制代码
+            <script>
+            new Vue({
+                el: "#app",
+                methods:{
+                add:function(){
+                    alert( this.$refs.input1.value)  
+                    }
+                }
+            })
+            </script> -->
+            <!-- <div id="app">
+                <ul>
+                    <li 
+                    v-for="(item,index) in tabs" 
+                    :class="{active:index == num}"
+                     @click="tab(index)">{{item}}</li>
+                </ul>
+                <div class="tabCon">
+                    <div 
+                    v-for='(itemCon,index) in tabContents' 
+                    v-show=" index == num">{{itemCon}}</div>
+                </div>
+            </div>
+        <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                tabs: ["标题一", "标题二","标题三"],
+                tabContents: ["A内容一", "B内容二","C内容三"],
+                num:''
+            },
+            methods: {
+                tab(index) {
+                    this.num = index;
+                }
+            }
+        });
+        </script> -->
+    <div id="app">
+        <ul>
+            <li
+            v-for="(item,index) in tab"
+            :class="{active:index == num}"
+            @click='change(index)'
+            >{{item}}</li>
+        </ul>
+        <div class="content">
+            <div 
+            v-for="(items, index) in tabcontents"
+            v-show="index == num"
+            >
+            {{items}}
+            </div>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                tab: ["标题一", "标题二", "标题三"],
+                tabcontents: ["内容一", "内容二", "内容三"],
+                num: ''
+            },
+            methods: {
+               change(index) {
+                   this.num = index
+               } 
+            }
+        })
+    </script>    
+</body>
+</html>
